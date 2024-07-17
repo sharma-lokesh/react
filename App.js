@@ -4,13 +4,39 @@ root.render(heading);*/
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", {id: "parent"}, 
-React.createElement("div", {id:"child"}, 
-[React.createElement("h1", {id:"heading"}, "I'm an H1 tag"),
-React.createElement("h2", {id:"h2heading"}, "I'm an H2 tag")]
-)
+const jsxHeading = <h1 className="head" tabIndex="5"> Hello world from jsxHeading</h1>;
+
+
+
+/*
+React component
+    class based component - old way
+    functional component  - new way
+React Function Component - Just a normal JS function
+**/
+//Eg:React Function Component - Just a normal JS function which returns a React Element (or JSX code)
+const HeadingComponent1 = () => {
+    return <h1>React Functional Component</h1>
+};
+//same thing as above 
+const HeadingComponent2 = () =>  <h1>React Functional Component</h1>;
+
+const elem = <span>React span Element </span>
+const title = (
+    <h1 className="head" tabIndex="4">
+        {elem}
+        React from JSX
+    </h1>
 );
 
-console.log(parent);
+const HeadingComponent = () => (
+    <div id = "container">
+        {title}
+        <h1 className="heading">Hello from React Functional Component</h1>
+    </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent/>);
+
+//Component Composition === component inside a component
